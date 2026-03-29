@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELOUR — Luxury Stationery Raffles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #FFD700;
+      --gold-light: #F0A8A8;
+      --black: #0a0a0a;
+      --black-soft: #1a1a1a;
+      --black-mid: #2a2a2a;
+      --text-cream: #f5f5f5;
+      --text-muted: #999999;
+      --border: rgba(255, 215, 0, 0.15);
+      --border-strong: rgba(255, 215, 0, 0.3);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text-cream);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ─── HERO SECTION ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 75% 35%, rgba(255,215,0,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 50% at 15% 75%, rgba(255,215,0,0.04) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0;
+      animation: float-particle 8s infinite ease-in-out;
+    }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-10vh) translateX(var(--drift, 30px));
+        opacity: 0;
+      }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.2rem;
+      border: 0.5px solid var(--border-strong);
+      padding: 0.45rem 1.1rem;
+      border-radius: 2px;
+      width: fit-content;
+      background: rgba(255,215,0,0.04);
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.8rem, 10.5vw, 8.5rem);
+      font-weight: 300;
+      line-height: 0.93;
+      letter-spacing: -0.02em;
+      max-width: 950px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero h1 .rose {
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin-bottom: 3rem;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .hero-sub strong {
+      color: var(--text-cream);
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--black);
+      padding: 1rem 2.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+    }
+
+    .btn-ghost {
+      color: var(--text-cream);
+      padding: 1rem 2.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 0.5px solid var(--border-strong);
+      background: transparent;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(255,215,0,0.04);
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .trust-badge .trust-icon {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    /* ─── SECTION BASE ─── */
+    section {
+      padding: 7rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 0.5px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .how-card {
+      background: var(--black-soft);
+      padding: 3rem 2.5rem;
+      position: relative;
+      border: 0.5px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .how-card:hover {
+      background: var(--black-mid);
+      border-color: var(--gold);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .how-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      font-weight: 300;
+      color: rgba(255,215,0,0.12);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .how-card:hover .how-number {
+      color: rgba(255,215,0,0.25);
+    }
+
+    .how-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .how-card p {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ─── BUNDLES ─── */
+    .bundles-section {
+      background: var(--black-soft);
+    }
+
+    .bundles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+    }
+
+    .bundle-card {
+      border: 0.5px solid var(--border);
+      padding: 2.8rem 2.2rem;
+      position: relative;
+      background: linear-gradient(135deg, var(--black-soft) 0%, var(--black-mid) 100%);
+      transition: all 0.3s;
+      cursor: pointer;
+      overflow: visible;
+    }
+
+    .bundle-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-4px);
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+    }
+
+    .bundle-card.featured {
+      padding-top: 3.6rem;
+      border-color: var(--gold);
+      border-width: 2px;
+      background: linear-gradient(160deg, var(--black-soft) 55%, rgba(255,215,0,0.08) 100%);
+      box-shadow: 0 0 50px rgba(255, 215, 0, 0.35), inset 0 0 0 1px rgba(255,215,0,0.15);
+    }
+
+    .bundle-badge {
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.4rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(255,215,0,0.5);
+      z-index: 10;
+    }
+
+    .bundle-tier {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .bundle-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 400;
+      color: var(--text-cream);
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+    }
+
+    .bundle-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .bundle-value {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bundle-value::before {
+      content: '↑';
+      color: #4CAF50;
+      font-size: 0.8rem;
+    }
+
+    .bundle-divider {
+      height: 0.5px;
+      background: var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .bundle-items {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .bundle-items li {
+      font-size: 0.84rem;
+      color: #aaa;
+      padding: 0.65rem 0;
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      transition: color 0.2s;
+    }
+
+    .bundle-items li:hover {
+      color: var(--text-cream);
+    }
+
+    .bundle-items li::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 4px rgba(255,215,0,0.5);
+    }
+
+    .bundle-items li:last-child {
+      border-bottom: none;
+    }
+
+    /* Progress bar */
+    .progress-container {
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 2px;
+      background: rgba(255,215,0,0.1);
+      border: 0.5px solid var(--border);
+      border-radius: 1px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: width 0.5s ease;
+    }
+
+    .progress-text {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Ticket selector */
+    .ticket-selector {
+      background: rgba(255,215,0,0.05);
+      border: 0.5px solid var(--border);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 2px;
+    }
+
+    .ticket-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .ticket-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .ticket-btn {
+      width: 32px;
+      height: 32px;
+      border: 0.5px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+
+    .ticket-btn:hover {
+      background: rgba(255,215,0,0.1);
+    }
+
+    .ticket-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      border-bottom: 0.5px solid var(--gold);
+      color: var(--text-cream);
+      text-align: center;
+      font-weight: 600;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .ticket-total {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .bundle-btn {
+      width: 100%;
+      text-align: center;
+      display: block;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+    }
+
+    .bundle-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255,215,0,0.3);
+    }
+
+    .bundle-btn.draw-btn {
+      background: linear-gradient(135deg, var(--gold-light), #FF6B9D);
+      margin-bottom: 0;
+    }
+
+    .bundle-btn.draw-btn:hover {
+      box-shadow: 0 6px 20px rgba(240, 168, 168, 0.5);
+    }
+
+    /* ─── WHY US ─── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 4rem;
+      border: 0.5px solid var(--border);
+    }
+
+    .why-cell {
+      background: var(--black);
+      padding: 2.8rem 2.5rem;
+      border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .why-cell:nth-child(2n) {
+      border-right: none;
+    }
+
+    .why-cell:nth-child(3), .why-cell:nth-child(4) {
+      border-bottom: none;
+    }
+
+    .why-cell:hover {
+      background: var(--black-soft);
+    }
+
+    .why-icon {
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      color: var(--gold);
+      display: block;
+    }
+
+    .why-cell h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      margin-bottom: 0.7rem;
+      color: var(--text-cream);
+    }
+
+    .why-cell p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ─── REVIEWS ─── */
+    .reviews-section {
+      background: var(--black-soft);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .review-card {
+      border: 0.5px solid var(--border);
+      padding: 2.2rem;
+      background: var(--black);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .review-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .review-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: rgba(255,215,0,0.08);
+      position: absolute;
+      top: 0.5rem;
+      right: 1.5rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem;
+      font-style: italic;
+      font-weight: 300;
+      color: #d0c8b4;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .review-author {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .review-author::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 0.5px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-item {
+      border: 0.5px solid var(--border);
+      margin-bottom: 1rem;
+      background: var(--black-soft);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+      font-weight: 600;
+    }
+
+    .faq-question:hover {
+      background: var(--black-mid);
+    }
+
+    .faq-toggle {
+      transition: transform 0.3s;
+      color: var(--gold);
+    }
+
+    .faq-toggle.open {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .faq-answer.open {
+      padding: 1.5rem;
+      max-height: 500px;
+    }
+
+    /* ─── MODAL ─── */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, var(--black-soft) 0%, var(--black-mid) 100%);
+      border: 2px solid var(--gold);
+      padding: 3rem;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 2px;
+      position: relative;
+      text-align: center;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: var(--gold);
+    }
+
+    .reels-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .reel {
+      width: 80px;
+      height: 80px;
+      border: 2px solid var(--gold);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--gold);
+      background: rgba(255,215,0,0.05);
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .reel.stop {
+      animation: none;
+    }
+
+    /* ─── CONFETTI ─── */
+    .confetti {
+      position: fixed;
+      pointer-events: none;
+      animation: confetti-fall 3s ease-in forwards;
+    }
+
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(0) rotateZ(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotateZ(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .hero {
+        padding: 4rem 1.5rem 3rem;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-cell {
+        border-right: none;
+      }
+
+      .why-cell:nth-child(3) {
+        border-bottom: 0.5px solid var(--border);
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    /* ─── STICKY NAV ─── */
+    .sticky-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-nav.visible { transform: translateY(0); }
+    .sticky-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+    .sticky-cta {
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.55rem 1.4rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .sticky-cta:hover { background: #ffe033; }
+    .bundle-card.featured .bundle-btn:first-of-type {
+      animation: pulse-btn 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-btn {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); }
+      50% { box-shadow: 0 0 0 6px rgba(255,215,0,0.15); }
+    }
+
+    /* ─── TICKET COUNTER ─── */
+    .ticket-counter {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255,215,0,0.1);
+      border: 1px solid rgba(255,215,0,0.3);
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      border-radius: 2px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .ticket-counter.show {
+      display: flex;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+
+  </style>
+<script type='text/javascript' src='https://private-us-east-1.manuscdn.com/4D7Ib4pkVE6aejDvoUEtJyQUVVAk3KpUvkIjgL4oF6-i7d_TyCbXIkPpDPdTkT29eM-oVhEaCP0PNYQVOK3T-f4YmTsdveXFoJKfIoq48Mmb6ip4F5u_lGbXZqW3WkMXVz7uopeQ69P_ZM0_RozLK2VYwiS_Pzom9UVlEs8SvYiIZRQehhjy3A7mVgnuvHZ7gQ070Wa7yMun02uzphS79JuTzuO19C_TAq5DLK1SmdaKx3B87SYhS2eDso9tHOItIbk8BVSmWtQ8EDyXP6xM2zzqhD1CXNbN5Z1aLHbGr65GWJWzYKtEnr4jeGCtiCApWuA3D9rblk9lKgY8aXANyEmw4IsTdKNoswqzASc3uh7QGUBjBwqBI_Fdrr0OObYRpV24zfPY7cJbjloHUQc7dTIbFdLjrdy-2XI32J3pklI-qy1edZABkceQeSC7JJK8yOV3f-VbwLcoSOyeUDXMq6S2I3RBCpTAKg5GWQLP_yXT5IgdftGLiyhPcDMw9zDTax57sd4295G25fUwAICiYcKoFKdAScb2g58CcB38AdRCU_e8-KpErjWHA-AE1tuAcg_90h5agxTalFTNxcVVBhwrVbpi3AssU98gpBli0ZSqB7ZbyU9CkA53f5BKfUxONOHJfB6ubMgbeTt0T22rPRD5F8SEd7G54PIxA22x-_jheZ_6C1CvKOfw6sXMB3m19nKdVyBlaZ1keZCshWcBElhgQRL7Z_nWNdYmCSB3zExKTWa1m2vBRinkq1CWO9GYFRl5-ICmsONB0pCU2l9TO0QQ1Fix-jZPCaA7pHfRS2YPuBVjVSIQYNp-5HJVAKSEmCG7JzcmYE_7lQXcicn7kujkVn7LJehrKSuBY5JKwwjepy_7xOdrQ4DmrYeLPLXRgo63hV7_SFlspvB1Xp2etXQvLxR5M8cWkHIZ7Q6Q5Iio8pd--Va0rLydd-tYItcc8lkb4Xwn_329W5kEPUTT722b8VTGeoGkg9tC8neU1lnGEV2RxHkahzbj0_W9x4mtTUxxp_Jy0h3wjBspDzt-7VrqU84vi-SdA6j7ITgSBHpYoaOoRd2TsmFxcdO9CfN4Vh9c3ciqAPIHtxq_K29x0-OcbnNTcrWcfjRL9nsV022D5ZYiT0ZTDXNtJIueG6fBF8_3_KCNTygqbpngFdYxW80S7jvlcDvcenyv7t56EV5Uf4u8-AVa34YfeVAcDOL--rORS4rfZSDvY6EXzDe-9zE2WmmjcVlScrCJDtQaz4k6Es-nsI3Mk5wCiOaYJORWWcEhCsP5ZbLXOIdUv_r394f4hmuFEv08aGxgnCglx5RZnxxM7GOPCJPFIl0aTPdjImOSgUs-PNrzaO_0v4OT-LGVM7F81xVeib3AlsjA3G6IYuUWENhTp8bfmgc63CZ4U3ezK4pCvUh1hnGKbg57Oyws0G7CrRmFQMsu3O05amuNnGhkqH0qo1izDoPb-W24_vtspDoqURdvZxmYVbhmaqBPkKSQBaHiT9t-QawZk7x5goAQatQUXozfyh_VUP-EMpgTKJJ1L6Odfq1ju6a0ZLH06qwmLUnlMblGT-X9G9LQvSleI-36bhPA0yCg8-S3'></script><script type='text/javascript' src='https://private-us-east-1.manuscdn.com/krQep_p4U_WhmJxwIl0qU0Mi0jNRbS-mNFhCOvop57D9QQt7cXXVIs7WcWTGbE4_Hzwan2oUw_GSgYTzfv1JlAT73dlX35JBiZzb5cQfKTAT-VRHExeHHjdoOYG_H0Ejbm6KXtjla3T7lVlLv3kMQ8y6OZKpTPPwQQzcK1eoVaCjjCqkih2uHrbkkx9RqXj6fMOLP8wEtRaMV53RGPWiMbZ1qUtyu8GqQglB-zsG676CD7knHwlVhXfbRuZugfstoAf8xKt-jj63XlAzrNA4fLlhQwheDbTIfwGTz0tuBTjgzbXa41U-TgWFmoTiwMm08OcTm0pIVV8cbbmWt6UCxtiYfDG68xVVu0fjTXq-aM0tsDp-EY5yG5e73ezXt4P0--vBalV7o_xy6WBfNnN9Uut9UMrR8-tj7zAMYFnSm4ozGwdJGj_eYd4HLCM_e4I6wuvNnntGRPEb4IkTByqmVUggsJeKU-uLj-1kJ_4NmLk2ltBDyoqwYhrlLYZDHlEIhDhTVEMCyXHLbo2AVGszdjGSFMsjgAwJAYZcMegYdCFD1lp_Oj5ysLqMo13FEvCHS6JwNVyULheo5ekOr4QYhAuyQFgVsfG-Hhfc702dmjO6RDT_cM2e8-eC3lM-sCnBFLnsId3gihQYwgFWBxsc32uGPVnU3kaRYlg45bWj3vFpK2WceFMF0qj0ChHofUt-tgvgoUAMBkwjF7ZIwqrnQcIZkvaWjU3v7-9TnalMs16qqZmYzyKSbsb4I75M2veXpY9Gie_bOeAhT8KhA1ptB8FQ6Ryj3V4QPPT1gL0sdQZ4avtTaMDnhXzkaD7h1dFB-HhhjrFduvsa14uvmU4N-khGjiijnx9oz-O-W1k9g5OYiQ8wWh4am1QQV4s1_z0M_deiJpDwzV3VqSkkd59hdB-Wv69BnMSKKDxxtO4UA4-oYIbTcARoESq5oGXmYHCnZqK4JngofuN4_wY7aFQYVeF96vD4IyrqTFIA_tKY0P9lHsZuoDt1CpjiKQLCKSrHfQSYY_OPqdmKlOxPG1bRU6cRF8CxJW8uTPIbtN1Lb5f__LfiSISqW852VPuAZAxpXi8_UvJeHGjbDDbnJZYqgbYYzEDHm3xhEtiX1hmZWBTyCMjG7-v3zX-OQeaZ5gxjUKoOXb9BO8e4Vkj7ZoWbdvvvTd9Y73sluAuwMy58Ta3DLRvb7vrd5SmiC7ErxYLHxE8IqdL1uPNID2NefWz6mPADF-jDWUrT4g0L--bdwemsbuOI91XUyi_SFznyHw7YIGIEmu8XPNQhrl34e-YwIDRc-fl46iy7QNyMWzet8SeCnk5D22ZW3Qu-i60IDb3HXFwwEmZ0kIfsUNeyI6pTII7hO00VI97nygvYLFTc02wfbdqjOJVLk2mTpNUIsV-DL1AWh3Elc_vYLgD_kJUjH3_B69G_k0aVdoRDQ-l6a-Qt6yz7HNREDhwsCublzRdpbrZVadNyv1tDNtqb1t8tS50AH8Cvpvb9JeRXVeslioCRq9O0Cz0q0nreWi3mvhRwFlKaE4pf__bI-PsuulykQyR8Yx7LOXx6mo5H9dBwbvuZVg9Vcvgz_1qzjCFtB9K_'></script><script type='text/javascript' src='https://private-us-east-1.manuscdn.com/Pfi-LUZwlwNIahMdPGAyLnJ1AILTEuQFYaSwyTbJtFENBAc2EV2JKVgBreDKe6j1QnwNYOuC89J_4CxEoibBjo9HOUEHgLd8H5MS_WkWj5NkoZbubkLh36Yos1r3Es7RcTmyZ25_j2rWvltsuFNuFwyt85jGe6WwKBRIykk0ldSmsk99IKMzJozkg3wJOz-u3CUhJa9wprgXdYk1UEXPd20l6jpVi35yZH1DYyG_sUX0x51beH25LCdwTT1ZqJlLwTWNs6JOL4LLE0CNEnlUp2Cn2quyzc4I2qxm9fNykQSuyQ4KtTAvQgu9Ud9MtQnUZ4gWxiYwGSb4Dknu6UiTjpm-c0k2SeSDhCaOirZsRs4bfLotiRdI94kRSPPDEY_5nEuvrrkWiVKat83YvZZEg-YLI-XJhXM85e1onElN_WuYAOJJ_oGUxEKyJJ9dbG2I5LZ1Qg82e0FCDkB2cSzBNzoJrQIZgwdSr0ktX5GM6CtQ8UkWUpuFD5x6zV77yXqYWllFPkibqDCW6Q81xdmFIEi8WuaJ-6MQ1FvimwG62PEcpmCja7zclYEJsUF3WTCJDQjb0Z_Vx9azpK3zBJHkP2lybh40sGLSF57h6ziOAkeYFl0llPfP7qTxLWHS10jDvqmrP9iErJv4D914nqtt3Gq7gxunFHdbB6p6P6oS9282eDpGwdxZa8g94iE0wP-0u8g0ixOuNwq-MiEyvYKWDCZIv2heTpAkOQiDqPPHWPFyZK4izuxWrIqlIp8a4tcjahnhb86b0Kdk6WRqlgU1ISMUCruFZV9SUu_2PUqVt17-GppxoE5wAY9ua_YVoRT1RSE5JX4RXFeA0Fi0XmQz2sjHa9MUBOq0hi77n3Jpy0v7rEuDRoQUSXUTthO3P7HwkxrkzukeVDGSRTHTzknLfyGXGcMzE5q1qwyaQo33J9Uae6fbRQ9VJ0bzVGZoqBuFGXGcqXwEs1acmAYzCG6f0YsxmqXJtNCspJ4voHH-g4myPUcXZeXzdKZ_4CA_uBt8-uPuP9SXeOilmebc9hu9Twr0uqJjpaUiLA-VSUzKQz7ywxWj_mFl4_I6mNJDJXyiuaQvzRFbdhmxQXgjnv4Djw3NP-sk_bTcqEZOn479vZrScrbbqSFYu5h6isXbhqueDOhVKF1ymrjuC4ZcPZv1cgV_3J-W0IRj1nTWUhiopKYvFNlLRYWmDSEkvaala5yGcJieK8PcM12lRnfH18Bu4LxDxAnQpaPdcUp88bKkQ_H9QmcMg6K0VLlszybASCJO9OvyE2PYtMxxCo5efZwtO4ThD02L2nev-U4CPcpiKmes2Omcz1vEiKGRhv4ji_1t-3KeiZYx25XD89llclwXhDr1FnwXjCKFybF_Yhag-ALSiXrn7-64RR7at9mSBQlm8Cpp1MMMKezZa-jBcbdLqmNuJrkxhb_ZtBgQFPSEZwkIlTyckWbpD8Yq4F1uwTi_mW3InXPa9bc9kGShgXKpGs1W55bDBii-a_noy-ChmShi_ke-_QNxTMcbcJ29Rts4kygq1RmIAja7Wzxvv6AhL40sLwU8JJQMgEBgRq95Vn9_koWS0u86a157DQA4ZXFDvSAUm0l1OsgnCMzFLkmihtuOD-g685J9hHmP6p3XwJrn2lCaxP7TrrY'></script><script type='text/javascript' src='https://private-us-east-1.manuscdn.com/1SgV55pOHqTQRuC9yLKK7iydXP8iGVdjcT9RrcKEgAoklpKPYOYfCcxL0G42eSrz4FnSgRZGR7-dZ0yd7gRQFqrPt7Hi5YcBPZQVYD82IybPy_oSAZEoJ5tTvVn8uoSdKVqTjobf9YBgcxZlboqCPaDVQ08V68b0A4A1wB_XBJcenhb1f7blJ6W_6VEXwVNwy-AhfOrbwXq-RYtuD9qUMSEDIy8S9EmNU_43SeZLzxx_tpCu7ZTz83wUs7GPbx526TyRPQRATiXOKjZr9mBTgJyJChkVHahHFDPEPgFQ8HWYXxJ2beCM1tLCa4qySf9ILhr4amTuJf1Iw59jucWQUET7cJuxIhpNH_KnrOkqMSkGfzmZrqZS3GegW15zhdx63aBRg1rf_y_9Xow3pqI0qs_xfO_K14CAE3gQZyI1dBNrMo5XlXO9ylIA55JDt6CB1nkO0jL93lxTNVla5-eqf261oHxD0dfvlX9JZ5uSuAv-BZwMMhve9Bo-G80G0kowbI6qThUSWVnw3m-7LF8my4dzhypZBznc57lgd6g3pnHJ3ICWIgpUi5td4CQYHS1JuRVpLmhK9nbBAfO6hvetHj6wvFE2v8A_45FNZggdK1VqUgw1JWdq7wpKN3mUnU7FNYYu7ybM6nSmU9BG9RiHrvVncMedL35Bq4j9swHpeG9uekRFIs3kiVHykwIUfM47SDelifmH8pZOm2CyKp3zukLq56EsCf9W7e9qGd7yRNPEYyczIdfJQ9GlzWGkQOV_95XrNEpUngAsVdF8o1Pjp1lezH7iy0DPcXWPpqkQiDdeqz5mSsoSYNa7bRS3223C8QzYEw9ZkvkAqShbyCxBSzV9nBr59nz0SuixGM3_YMCk5eyUqvifVoYtXDxGxzq-VBUFdGbuFiNLVh13Pcpm-p6ir5ZFMNv5hNfQ11Qmye82TzXkAi1Q7UQeokvKf_stcoCAg_U7oBMhcddT_fh8s7cvvHuucX41pmosIw4mTNwEhuMKo55oxPztbT6hV7Z4_ZLZES0EzxDiWVSL3ClDm9k6AVe3jOs3XyVlqBq8T0lj5u0UB7w0naV_AiA9Hxs5aM0Okt9RbF5GZ0xeZP1QDmkqnsbC_LTX7Qf2ty1s7baWbmpxmaVBuOh5XEH4BODyBUazUyE0_FcYncxwg0HzaGhB0WJtV16vU5vwbWYjML0oxvBv82zEtU8CV8CqmUmfZMV_rnxR-cjm2Rn8sC-xJZTX1REBZxWOXBmQUDKuSZ_10_9GeguGt8Izereq_RAZ-doX7tRC74Hmj5iY9u0AbwwcCaMokwNe5GoMbb0-L4C0N5GG2sKbR9FLNz6_ZUb9SyYlIYuqYGzyZKQwF-BFlc-SJP-D7uyw3c0Du_W74u-t78pkVk4F1yy9CPZWuHTOK0HQJrEbhw4PA5YiQJ-12kLmjtFW3SbGq5gvjDpJLurnFRIDgYjIDc7zSW1nuOzJ0cgByMURPSIBO8kFkCjmKS9ybs1rYjO58PrVHc_077wzuGY9zR1AuevnUJ86To9yGQ31499NkRkfSvPvz9sRhJkAXxplwmISkmsrYUJ0s-UeGPfCcYbX_ZaYH4rhYz4p5RoS1JKG0HGwavpancqP3WTOAw92P69TLxrP7_ckY6u-7ZkA4QgKyBU'></script></head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-particles" id="particles"></div>
+
+    <div class="container" style="position: relative; z-index: 10;">
+      <div class="hero-eyebrow">✦ Raffles Open Now — Draws Filling Fast</div>
+
+      <h1>Unbox <em>Something</em><br>You'll <span class="rose">Actually</span> Love</h1>
+
+      <p class="hero-sub">
+        Win a hand-curated mystery bundle worth up to <strong>$120 CAD</strong> — for just $2 a ticket. New items every drop, packed in our signature black & gold packaging. Ships to <strong>Canada & USA</strong>.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('bundles').scrollIntoView({behavior: 'smooth'})">Enter for $2 — View Raffles</button>
+        <button class="btn-ghost" onclick="document.getElementById('how').scrollIntoView({behavior: 'smooth'})">How It Works</button>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-badge">
+          <span class="trust-icon">★</span>
+          <span>4.9/5 Rating</span>
+        </div>
+        <div class="trust-badge">
+          <span class="trust-icon">◈</span>
+          <span>1000+ Happy Customers</span>
+        </div>
+        <div class="trust-badge">
+          <span class="trust-icon">↑</span>
+          <span>Premium Curated Bundles</span>
+        </div>
+        <div class="trust-badge">
+          <span class="trust-icon">🚚</span>
+          <span>Ships Canada & USA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how">
+    <div class="container">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">How it <em>works</em></h2>
+      <p style="color: var(--text-muted); max-width: 500px; font-size: 0.95rem;">No complicated menus. Pick a tier, buy raffle tickets at $2 CAD each, and wait for the draw. When minimum tickets are reached, the magic happens.</p>
+
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-number">01</div>
+          <h3>Pick Your Bundle</h3>
+          <p>Choose from three tiers — Spark, Luxe, or Crown. Each bundle is hand-curated with premium items you'll actually want to use.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-number">02</div>
+          <h3>Buy Raffle Tickets</h3>
+          <p>Each ticket costs $2 CAD. Buy as many as you want. More tickets = better odds of winning.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-number">03</div>
+          <h3>Win & Receive</h3>
+          <p>When the minimum is reached, we draw a winner. Your bundle ships within 48 hours with full tracking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Nav -->
+  <nav class="sticky-nav" id="stickyNav">
+    <div class="sticky-logo">VELOUR</div>
+    <div style="display:flex;gap:2rem;align-items:center;">
+      <button style="background:none;border:none;color:var(--text-muted);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How It Works</button>
+      <button style="background:none;border:none;color:var(--text-muted);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;" onclick="document.getElementById('faqSection').scrollIntoView({behavior:'smooth'})">FAQ</button>
+      <button class="sticky-cta" onclick="document.getElementById('bundles').scrollIntoView({behavior:'smooth'})">Enter — $2/ticket</button>
+    </div>
+  </nav>
+  <!-- Bundles Section -->
+  <section id="bundles" class="bundles-section">
+    <div class="container">
+      <div class="section-label">Raffle Bundles</div>
+      <h2 class="section-title">Choose Your <em>Tier</em></h2>
+      <p style="color: var(--text-muted); max-width: 500px; font-size: 0.95rem;">All tickets are $2 CAD. Once the minimum is hit, a 24-hour window opens — then one winner takes the whole bundle.</p>
+
+      <div class="bundles-grid" id="bundlesGrid">
+        <!-- Bundles will be generated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why">
+    <div class="container">
+      <div class="section-label">Why Velour</div>
+      <h2 class="section-title">Why <em>Choose Us</em></h2>
+
+      <div class="why-grid">
+        <div class="why-cell">
+          <span class="why-icon">🛡️</span>
+          <h3>Fair & Transparent</h3>
+          <p>All draws are fair and verified. We publish winner announcements publicly. Every ticket has equal odds.</p>
+        </div>
+        <div class="why-cell">
+          <span class="why-icon">⚡</span>
+          <h3>Fast Shipping</h3>
+          <p>48-hour dispatch on all winning bundles. Ships to Canada & USA with full tracking included.</p>
+        </div>
+        <div class="why-cell">
+          <span class="why-icon">✨</span>
+          <h3>Premium Curation</h3>
+          <p>Every item is hand-selected for quality. No fillers, no junk — just things we'd genuinely want to receive ourselves.</p>
+        </div>
+        <div class="why-cell">
+          <span class="why-icon">💰</span>
+          <h3>Affordable Tickets</h3>
+          <p>Just $2 CAD per ticket. No hidden fees. Accessible luxury for everyone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="section-label">Customer Love</div>
+      <h2 class="section-title">What Our <em>Community</em> Says</h2>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The quality of items in my bundle was incredible! I got way more than I expected. Already planning to buy more tickets."</p>
+          <div class="review-author">Emma — Stationery Enthusiast</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Finally found a raffle that feels fair and transparent. The bundle I won has become my go-to for all my design work."</p>
+          <div class="review-author">Sophie — Art Student</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The packaging alone is worth it! Everything arrived beautifully packaged. Customer service was amazing too."</p>
+          <div class="review-author">Jasmine — Bullet Journal Creator</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I love the concept. It's like a treasure hunt every time. Won the Elite bundle and couldn't be happier!"</p>
+          <div class="review-author">Olivia — Graphic Designer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faqSection">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-label">Questions</div>
+      <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+
+      <div id="faqContainer">
+        <!-- FAQ items will be generated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section style="text-align: center; background: linear-gradient(to bottom, var(--black-mid), var(--black));">
+    <div class="container">
+      <div style="font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Don't Miss the Draw</div>
+      <h2 class="section-title">Your $2 ticket could<br>win a <em>$120 bundle</em></h2>
+      <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto;">Draws happen the moment the minimum is hit. Tickets are selling — the Crown raffle is 89% full right now.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-primary" onclick="document.getElementById('bundles').scrollIntoView({behavior: 'smooth'})">Enter a Raffle Now</button>
+        <button class="btn-ghost" onclick="document.getElementById('how').scrollIntoView({behavior: 'smooth'})">How It Works</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Draw Modal -->
+  <div id="drawModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Ticket Counter -->
+  <div class="ticket-counter" id="ticketCounter">
+    <span>🎫</span>
+    <span id="ticketCount">0</span>
+    <span>Tickets</span>
+  </div>
+
+  <script>
+    // Bundle data
+    // All tickets: $2 CAD
+    
+    const bundles = [
+      {
+        id: 'spark',
+        name: 'The Spark',
+        tier: 'starter',
+        price: 2,
+        value: 25,
+        description: 'A great first entry — solid items, zero filler, all for $2 a ticket',
+        items: ['Premium Gel Pen Set (5pcs)', 'Luxury Notebook', 'Gold Stickers Pack', 'Washi Tape Collection'],
+        minTickets: 30,
+        currentTickets: 12,
+        economics: 'Gross: $60 | Margin: 33%'
+      },
+      {
+        id: 'luxe',
+        name: 'The Luxe',
+        tier: 'premium',
+        price: 2,
+        value: 60,
+        description: 'Our most-entered raffle — more items, higher value, same $2 ticket price',
+        items: ['Fountain Pen', 'Leather Journal', 'Wax Seals Set', 'Calligraphy Pen Set', 'Gold Desk Clips', 'Premium Paper Pack'],
+        minTickets: 50,
+        currentTickets: 38,
+        featured: true,
+        economics: 'Gross: $100 | Margin: 43%'
+      },
+      {
+        id: 'crown',
+        name: 'The Crown',
+        tier: 'elite',
+        price: 2,
+        value: 120,
+        description: 'The big one. $120 in premium items, one winner, still just $2 a ticket',
+        items: ['Luxury Pen Collection (3pcs)', 'Premium Leather Portfolio', 'Gold Embossing Kit', 'Exclusive Notebook Set (3)', 'Artisan Wax Seals', 'Calligraphy Masters Set', 'Limited Edition Papers'],
+        minTickets: 75,
+        currentTickets: 67,
+        economics: 'Gross: $150 | Margin: 43%'
+      },
+    ];
+
+    const faqs = [
+      {
+        question: 'How does the raffle work?',
+        answer: 'Choose a bundle, buy raffle tickets at $2 CAD each, and enter the draw. When the minimum ticket threshold is reached, we conduct a fair, transparent draw to select a winner. The winner is announced publicly and their bundle ships within 48 hours.',
+      },
+      {
+        question: 'Are the draws fair and verified?',
+        answer: 'Absolutely. All draws are conducted using a verified random selection process. We publish winner announcements publicly. Every ticket has equal odds regardless of when it was purchased.',
+      },
+      {
+        question: 'What\'s the minimum ticket requirement?',
+        answer: 'Each bundle tier has a different minimum: Spark (30 tickets), Luxe (50 tickets), Crown (75 tickets). Once the minimum is hit, we draw a winner within 24 hours. The draw never happens before the threshold — so your ticket always counts.',
+      },
+      {
+        question: 'How much does each ticket cost?',
+        answer: 'All tickets are $2 CAD, regardless of bundle tier. This makes raffles accessible and affordable. You can buy as many tickets as you want to increase your odds.',
+      },
+      {
+        question: 'Can I buy tickets for multiple bundles?',
+        answer: 'Yes! You can buy tickets for any combination of bundles. Your ticket count is tracked separately for each raffle, so you can spread your chances across different tiers.',
+      },
+      {
+        question: 'How long does shipping take?',
+        answer: 'All winning bundles ship within 48 hours of the draw. We ship to Canada & USA with tracked courier services. Most deliveries arrive within 2-3 business days.',
+      },
+      {
+        question: 'What happens if I don\'t win?',
+        answer: 'Each ticket is valid for a single draw only. If your ticket isn\'t selected, it does not carry over to future draws. However, we launch new raffle bundles regularly, so you can always enter the next one for another chance to win!',
+      },
+      {
+        question: 'Is there a limit to how many tickets I can buy?',
+        answer: 'There is no hard limit on ticket purchases. While buying more tickets increases your statistical odds of winning, please remember that raffles are a form of entertainment. We encourage all our customers to play responsibly.',
+      },
+      {
+        question: 'How are my odds calculated?',
+        answer: 'Your odds shown on the site are your current probability based on tickets already purchased. For example, if 30 tickets are sold and you buy 5, your odds are roughly 17%. However, more tickets can be purchased before the draw, which will adjust everyone\'s odds. The odds you see are a real-time estimate of your probability based on the current total tickets sold.',
+      },
+      {
+        question: 'What happens after the minimum tickets are reached?',
+        answer: 'Once we hit the minimum threshold (e.g., 30 for Spark, 50 for Luxe), we announce the draw will happen within 24 hours. During this 24-hour window, more tickets can still be purchased. The draw happens exactly 24 hours after the minimum is triggered, using all tickets sold up to that moment.',
+      },
+    ];
+
+    let totalTickets = 0;
+    let totalSpent = 0;
+    let raffleTickets = { spark: 12, luxe: 38, crown: 67 };
+
+    // Initialize particles
+    function initParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.setProperty('--dur', `${8 + Math.random() * 4}s`);
+        particle.style.setProperty('--delay', `${Math.random() * 2}s`);
+        particle.style.setProperty('--drift', `${-50 + Math.random() * 100}px`);
+        particle.style.left = Math.random() * 100 + '%';
+        container.appendChild(particle);
+      }
+    }
+
+    // Render bundles
+    function renderBundles() {
+      const grid = document.getElementById('bundlesGrid');
+      const tierLabels = { spark: 'Entry', luxe: 'Mid', crown: 'Premium' };
+      grid.innerHTML = bundles.map(bundle => {
+        const pct = Math.min((bundle.currentTickets / bundle.minTickets) * 100, 100);
+        const spotsLeft = bundle.minTickets - bundle.currentTickets;
+        const ticketCount = parseInt((document.getElementById(`tickets-${bundle.id}`) || {value: '1'}).value) || 1;
+        const odds = bundle.currentTickets + ticketCount > 0 ? Math.round((ticketCount / (bundle.currentTickets + ticketCount)) * 100) : 0;
+        const isReady = bundle.currentTickets >= bundle.minTickets;
+        const urgency = spotsLeft <= 8 ? `<div style="color:#FFD700;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;margin-bottom:0.5rem;">⚡ ONLY ${spotsLeft} SPOTS LEFT</div>` : '';
+        return `
+        <div class="bundle-card ${bundle.featured ? 'featured' : ''}">
+          ${bundle.featured ? '<div class="bundle-badge">MOST POPULAR</div>' : ''}
+          <div class="bundle-tier">${tierLabels[bundle.id] || bundle.tier} Tier</div>
+          <h3 class="bundle-name">${bundle.name}</h3>
+          <div class="bundle-price">$${bundle.value} <span style="font-size:1rem;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:300;">CAD bundle</span></div>
+          <div class="bundle-value">Enter for just $2 CAD per ticket</div>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">${bundle.description}</p>
+          <div class="bundle-divider"></div>
+          <ul class="bundle-items">
+            ${bundle.items.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+          ${urgency}
+          <div class="progress-container">
+            <div class="progress-label">
+              <span>Draw Progress</span>
+              <span>${bundle.currentTickets}/${bundle.minTickets} tickets</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: ${pct}%"></div>
+            </div>
+            <div class="progress-text">${isReady ? '⏱ Draw window open — still time to enter!' : spotsLeft <= 5 ? `⚡ Only ${spotsLeft} spot${spotsLeft !== 1 ? 's' : ''} left before the draw!` : `${spotsLeft} more ticket${spotsLeft !== 1 ? 's' : ''} until the 24hr draw window opens`}</div>
+          </div>
+          <div class="ticket-selector">
+            <label class="ticket-label">How many tickets? ($2 CAD each)</label>
+            <div class="ticket-controls">
+              <button class="ticket-btn" onclick="updateTicketCount('${bundle.id}', -1)">−</button>
+              <input type="number" id="tickets-${bundle.id}" class="ticket-input" value="1" min="1" onchange="validateTicketInput('${bundle.id}')">
+              <button class="ticket-btn" onclick="updateTicketCount('${bundle.id}', 1)">+</button>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem;">
+              <div class="ticket-total">Total: $<span id="total-${bundle.id}">2</span> CAD</div>
+              <div id="odds-${bundle.id}" style="font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-align:right;">Your current odds: <strong style="color:var(--gold)">~${odds}%</strong><br><span style="font-size:0.65rem;opacity:0.6;">Updates as more tickets are sold</span></div>
+            </div>
+          </div>
+          <div id="nudge-${bundle.id}" style="font-size:0.75rem;color:var(--text-muted);text-align:center;margin-bottom:0.6rem;min-height:1.2em;">
+            <span style="color:var(--gold);">💡</span> Most winners bought 3+ tickets
+          </div>
+          <button class="bundle-btn" onclick="buyTickets('${bundle.id}')">Enter Now — $2 a Ticket</button>
+          ${isReady ? `<button class="bundle-btn draw-btn" onclick="startDraw('${bundle.id}')">🎰 Draw Winner Now</button>` : ''}
+        </div>`;
+      }).join('');
+    }
+
+    // Render FAQs
+    function renderFAQs() {
+      const container = document.getElementById('faqContainer');
+      container.innerHTML = faqs.map((faq, idx) => `
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(${idx})">
+            <span>${faq.question}</span>
+            <span class="faq-toggle" id="toggle-${idx}">▼</span>
+          </div>
+          <div class="faq-answer" id="answer-${idx}">
+            <p>${faq.answer}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateTicketCount(bundleId, change) {
+      const input = document.getElementById(`tickets-${bundleId}`);
+      const currentValue = parseInt(input.value) || 1;
+      const newValue = Math.max(1, currentValue + change);
+      input.value = newValue;
+      updateTotal(bundleId);
+    }
+
+    function validateTicketInput(bundleId) {
+      const input = document.getElementById(`tickets-${bundleId}`);
+      const value = parseInt(input.value) || 1;
+      input.value = Math.max(1, value);
+      updateTotal(bundleId);
+    }
+
+    function updateTotal(bundleId) {
+      const bundle = bundles.find(b => b.id === bundleId);
+      const ticketCount = parseInt(document.getElementById(`tickets-${bundleId}`).value) || 1;
+      document.getElementById(`total-${bundleId}`).textContent = 2 * ticketCount;
+      const oddsEl = document.getElementById(`odds-${bundleId}`);
+      if (oddsEl) {
+        const totalInPool = bundle.currentTickets + ticketCount;
+        const odds = Math.round((ticketCount / totalInPool) * 100);
+        oddsEl.innerHTML = `Your current odds: <strong style="color:var(--gold)">${odds < 1 ? '<1' : odds}%</strong><br><span style="font-size:0.65rem;opacity:0.6;">Updates as more tickets are sold</span>`;
+      }
+      const nudgeEl = document.getElementById(`nudge-${bundleId}`);
+      if (nudgeEl) {
+        if (ticketCount === 1) {
+          nudgeEl.innerHTML = `<span style="color:var(--gold);">💡</span> Most winners bought 3+ tickets`;
+        } else if (ticketCount < 3) {
+          nudgeEl.innerHTML = `<span style="color:var(--gold);">💡</span> Add ${3 - ticketCount} more to match the average winner`;
+        } else {
+          nudgeEl.innerHTML = `<span style="color:#4CAF50;">✓</span> Great choice — your odds are looking strong`;
+        }
+      }
+    }
+
+    function buyTickets(bundleId) {
+      const ticketCount = parseInt(document.getElementById(`tickets-${bundleId}`).value) || 1;
+      totalTickets += ticketCount;
+      totalSpent += ticketCount * 2;
+      raffleTickets[bundleId] += ticketCount;
+
+      // Update counter
+      document.getElementById('ticketCount').textContent = totalTickets;
+      document.getElementById('ticketCounter').classList.add('show');
+
+      // Trigger confetti
+      triggerConfetti();
+
+      // Re-render bundles to update progress
+      renderBundles();
+
+      // Reset ticket input
+      document.getElementById(`tickets-${bundleId}`).value = 1;
+      updateTotal(bundleId);
+    }
+
+    function triggerConfetti() {
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.top = '-10px';
+        confetti.style.width = '10px';
+        confetti.style.height = '10px';
+        confetti.style.background = Math.random() > 0.5 ? '#FFD700' : '#F0A8A8';
+        confetti.style.borderRadius = '50%';
+        confetti.style.animationDelay = Math.random() * 0.5 + 's';
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
+
+    function startDraw(bundleId) {
+      const bundle = bundles.find(b => b.id === bundleId);
+      const modal = document.getElementById('drawModal');
+      const body = document.getElementById('modalBody');
+
+      body.innerHTML = `
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem; font-family: 'Cormorant Garamond', serif;">
+          Drawing <span style="color: var(--gold);">Winner</span>...
+        </h2>
+        <div class="reels-container" id="reelsContainer">
+          <div class="reel" id="reel1">7</div>
+          <div class="reel" id="reel2">9</div>
+          <div class="reel" id="reel3">5</div>
+        </div>
+        <p style="color: var(--text-muted); margin-top: 2rem;">Selecting a lucky winner from ${bundle.currentTickets} entries...</p>
+      `;
+
+      modal.classList.add('open');
+
+      // Simulate draw
+      setTimeout(() => {
+        const winnerId = `WINNER-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+        
+        // Stop reels
+        document.getElementById('reel1').classList.add('stop');
+        document.getElementById('reel2').classList.add('stop');
+        document.getElementById('reel3').classList.add('stop');
+
+        setTimeout(() => {
+          body.innerHTML = `
+            <div style="margin-bottom: 2rem;">
+              <span style="font-size: 3rem;">🎉</span>
+            </div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-family: 'Cormorant Garamond', serif;">
+              🎉 <span style="color: var(--gold-light);">Congratulations!</span> 🎉
+            </h2>
+            <div style="background: rgba(255,215,0,0.1); border: 2px solid var(--gold); padding: 1.5rem; margin: 2rem 0; border-radius: 2px;">
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Winner ID</p>
+              <p style="font-size: 1.5rem; font-family: monospace; color: var(--gold); font-weight: bold;">${winnerId}</p>
+            </div>
+            <div style="background: rgba(240,168,168,0.05); border: 2px solid var(--gold-light); padding: 1.5rem; margin: 2rem 0; border-radius: 2px;">
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Prize: ${bundle.name}</p>
+              <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">Bundle Value: $${bundle.value} CAD</p>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">✓ Winner will be contacted within 24 hours<br>✓ Bundle ships within 48 hours<br>✓ Ships to Canada & USA with tracking</p>
+            </div>
+            <button class="btn-primary" onclick="closeModal()" style="margin-top: 1rem;">Close</button>
+          `;
+          triggerConfetti();
+        }, 500);
+      }, 3000);
+    }
+
+    function closeModal() {
+      document.getElementById('drawModal').classList.remove('open');
+    }
+
+    function toggleFAQ(idx) {
+      const answer = document.getElementById(`answer-${idx}`);
+      const toggle = document.getElementById(`toggle-${idx}`);
+      answer.classList.toggle('open');
+      toggle.classList.toggle('open');
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initParticles();
+      renderBundles();
+      renderFAQs();
+    });
+
+    // Sticky nav on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('stickyNav');
+      if (window.scrollY > 500) nav.classList.add('visible');
+      else nav.classList.remove('visible');
+    });
+
+    // Close modal when clicking outside
+    document.getElementById('drawModal').addEventListener('click', (e) => {
+      if (e.target.id === 'drawModal') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
