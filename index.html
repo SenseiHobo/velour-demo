@@ -858,31 +858,147 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       section {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1.2rem;
       }
 
+      .container {
+        padding: 0 1.2rem;
+      }
+
+      /* Hero */
       .hero {
-        padding: 4rem 1.5rem 3rem;
+        padding: 5rem 1.2rem 3rem;
+        min-height: auto;
       }
 
+      .hero h1 {
+        font-size: clamp(2.4rem, 11vw, 3.8rem);
+        line-height: 1;
+      }
+
+      .hero-sub {
+        font-size: 0.95rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+      }
+
+      .btn-primary, .btn-ghost {
+        text-align: center;
+        width: 100%;
+        padding: 1rem 1.5rem;
+      }
+
+      .hero-trust {
+        gap: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .trust-badge {
+        font-size: 0.7rem;
+      }
+
+      /* Sticky nav */
+      .sticky-nav {
+        padding: 0.85rem 1.2rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .sticky-nav > div {
+        gap: 0.8rem !important;
+      }
+
+      .sticky-nav button[style] {
+        display: none; /* hide text nav links, keep CTA */
+      }
+
+      /* Bundles */
+      .bundles-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding-top: 2.5rem;
+      }
+
+      .bundle-card {
+        padding: 2.2rem 1.5rem;
+      }
+
+      .bundle-card.featured {
+        padding-top: 3rem;
+      }
+
+      .bundle-price {
+        font-size: 2.5rem;
+      }
+
+      /* Why grid */
       .why-grid {
         grid-template-columns: 1fr;
       }
 
       .why-cell {
         border-right: none;
+        padding: 2rem 1.5rem;
       }
 
       .why-cell:nth-child(3) {
         border-bottom: 0.5px solid var(--border);
       }
 
-      .hero h1 {
-        font-size: 2.5rem;
+      /* How grid */
+      .how-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2.5rem;
       }
 
+      .how-card {
+        padding: 2rem 1.5rem;
+      }
+
+      /* Reviews */
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      /* Section headings */
       .section-title {
+        font-size: clamp(1.9rem, 7vw, 2.6rem);
+      }
+
+      /* Modal */
+      .modal-content {
+        padding: 2rem 1.2rem;
+        margin: 0 0.5rem;
+      }
+
+      .reels-container {
+        gap: 0.6rem;
+      }
+
+      .reel {
+        width: 65px;
+        height: 65px;
         font-size: 2rem;
+      }
+
+      /* Ticket counter */
+      .ticket-counter {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 0.8rem;
+        padding: 0.6rem 1.1rem;
+      }
+
+      /* FAQ */
+      .faq-question {
+        padding: 1.2rem;
+        font-size: 0.9rem;
       }
     }
     /* ─── STICKY NAV ─── */
