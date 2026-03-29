@@ -464,39 +464,53 @@
 
     /* Progress bar */
     .progress-container {
+      width: 100%;
       margin-bottom: 1.5rem;
     }
 
     .progress-label {
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      width: 100%;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .progress-label span:last-child {
+      text-align: right;
+      white-space: nowrap;
     }
 
     .progress-bar {
+      display: block;
       width: 100%;
-      height: 2px;
-      background: rgba(255,215,0,0.1);
+      height: 4px;
+      margin: 0;
+      background: rgba(255,215,0,0.08);
       border: 0.5px solid var(--border);
-      border-radius: 1px;
+      border-radius: 999px;
       overflow: hidden;
     }
 
     .progress-fill {
+      display: block;
       height: 100%;
+      min-width: 0;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
       transition: width 0.5s ease;
+      border-radius: inherit;
     }
 
     .progress-text {
       font-size: 0.7rem;
       color: var(--text-muted);
-      margin-top: 0.5rem;
+      margin-top: 0.65rem;
     }
 
     /* Ticket selector */
@@ -519,15 +533,20 @@
     }
 
     .ticket-controls {
-      display: flex;
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr) 32px;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
+      width: 100%;
       margin-bottom: 0.8rem;
     }
 
     .ticket-btn {
       width: 32px;
       height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border: 0.5px solid var(--gold);
       background: transparent;
       color: var(--gold);
@@ -542,7 +561,9 @@
     }
 
     .ticket-input {
-      flex: 1;
+      width: 100%;
+      min-width: 0;
+      padding: 0.3rem 0;
       background: transparent;
       border: none;
       border-bottom: 0.5px solid var(--gold);
@@ -550,13 +571,37 @@
       text-align: center;
       font-weight: 600;
       font-size: 1rem;
+      line-height: 1.2;
       outline: none;
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+
+    .ticket-input::-webkit-outer-spin-button,
+    .ticket-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .ticket-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 0.5rem;
     }
 
     .ticket-total {
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--gold);
+    }
+
+    .ticket-odds {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-align: right;
     }
 
     .bundle-btn {
@@ -861,6 +906,10 @@
         padding: 4rem 1.5rem;
       }
 
+      .container {
+        padding: 0 1rem;
+      }
+
       .hero {
         padding: 4rem 1.5rem 3rem;
       }
@@ -883,6 +932,38 @@
 
       .section-title {
         font-size: 2rem;
+      }
+
+      .progress-label {
+        gap: 0.5rem;
+        font-size: 0.68rem;
+      }
+
+      .progress-label span:last-child {
+        white-space: normal;
+      }
+
+      .ticket-selector {
+        padding: 0.9rem;
+      }
+
+      .ticket-controls {
+        grid-template-columns: 30px minmax(0, 1fr) 30px;
+        gap: 0.65rem;
+      }
+
+      .ticket-btn {
+        width: 30px;
+        height: 30px;
+      }
+
+      .ticket-summary {
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .ticket-odds {
+        text-align: left;
       }
     }
     /* ─── STICKY NAV ─── */
@@ -1301,9 +1382,9 @@
               <input type="number" id="tickets-${bundle.id}" class="ticket-input" value="1" min="1" onchange="validateTicketInput('${bundle.id}')">
               <button class="ticket-btn" onclick="updateTicketCount('${bundle.id}', 1)">+</button>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem;">
+            <div class="ticket-summary">
               <div class="ticket-total">Total: $<span id="total-${bundle.id}">2</span> CAD</div>
-              <div id="odds-${bundle.id}" style="font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-align:right;">Your current odds: <strong style="color:var(--gold)">~${odds}%</strong><br><span style="font-size:0.65rem;opacity:0.6;">Updates as more tickets are sold</span></div>
+              <div id="odds-${bundle.id}" class="ticket-odds">Your current odds: <strong style="color:var(--gold)">~${odds}%</strong><br><span style="font-size:0.65rem;opacity:0.6;">Updates as more tickets are sold</span></div>
             </div>
           </div>
           <div id="nudge-${bundle.id}" style="font-size:0.75rem;color:var(--text-muted);text-align:center;margin-bottom:0.6rem;min-height:1.2em;">
